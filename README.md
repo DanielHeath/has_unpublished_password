@@ -1,8 +1,20 @@
 # HasUnpublishedPassword
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/has_unpublished_password`. To experiment with that code, run `bin/console` for an interactive prompt.
+## What is it?
 
-TODO: Delete this and the text above, and describe your gem
+This is a gem which performs offline checks against the [HIBP](https://haveibeenpwned.com/) master list.
+
+It can be used to ensure that your users are not using credentials which have previously been leaked.
+
+The checks are performed using a pre-built bloom filter.
+
+## Status
+
+I just threw this together and haven't used it in production (yet - planning to next week).
+
+The released version of this gem includes ~30mb of bloom filter containing the top 11,200,000 most-leaked passwords according to HIBP.
+
+Checking set membership is *fast*, and the false positive rate is about 0.001%.
 
 ## Installation
 
@@ -22,17 +34,23 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Validation
+
+`validates :password, never_leaked_to_hibp: true`
 
 ## Development
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+### Building the filter
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+First, download the master list from HIBP (I used the 'ordered by frequency' list) and decompress it.
+
+Then, run `bundle exec data/prepare-and-validate.rb <path-to-master-list-file>`.
+
+This takes quite awhile; it'll print how many lines it's completed periodically.
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/has_unpublished_password. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/danielheath/has_unpublished_password. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
@@ -41,3 +59,4 @@ The gem is available as open source under the terms of the [MIT License](https:/
 ## Code of Conduct
 
 Everyone interacting in the HasUnpublishedPassword project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/[USERNAME]/has_unpublished_password/blob/master/CODE_OF_CONDUCT.md).
+

@@ -1,17 +1,15 @@
 PATH
   remote: .
   specs:
-    has_unpublished_password (0.1.0)
-      cuckoo_filter
+    has_unpublished_password (0.2.0)
+      ruby-bitfield
 
 GEM
   remote: https://rubygems.org/
   specs:
-    cuckoo_filter (0.1.1)
-      fnv-hash
-    fnv-hash (0.2.0)
     minitest (5.11.3)
     rake (10.5.0)
+    ruby-bitfield (0.1.0)
 
 PLATFORMS
   ruby

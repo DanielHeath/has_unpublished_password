@@ -6,3 +6,6 @@
 /pkg/
 /spec/reports/
 /tmp/
+*.bloom
+pwned-passwords-sha1-ordered-by-count-v4.txt
+*.gem
