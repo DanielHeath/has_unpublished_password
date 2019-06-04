@@ -8,6 +8,11 @@ It can be used to ensure that your users are not using credentials which have pr
 
 The checks are performed using a pre-built bloom filter.
 
+### Why not the full list?
+There's a tradeoff to be made between the false positive rate, the number of passwords checked, and the amount of disk/network bandwidth used.
+
+The full list is ~11gb compressed, and the smallest bloom filter that'll get an acceptable false positive rate on the full list is ~1gb. This gem is 32mb.
+
 ## Status
 
 In use in production on a fairly large site (https://radiopaedia.org).
