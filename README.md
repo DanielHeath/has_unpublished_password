@@ -10,7 +10,7 @@ The checks are performed using a pre-built bloom filter.
 
 ## Status
 
-I just threw this together and haven't used it in production (yet - planning to next week).
+In use in production on a fairly large site (https://radiopaedia.org).
 
 The released version of this gem includes ~30mb of bloom filter containing the top 11,200,000 most-leaked passwords according to HIBP.
 
