@@ -2,7 +2,7 @@
 
 ## What is it?
 
-This is a gem which performs offline checks against the [HIBP](https://haveibeenpwned.com/) master list.
+This is a gem which performs offline checks against the [HIBP](https://haveibeenpwned.com/) master list (well, the top 11,000,000 passwords in it).
 
 It can be used to ensure that your users are not using credentials which have previously been leaked.
 
