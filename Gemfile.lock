@@ -8,7 +8,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     minitest (5.11.3)
-    rake (10.5.0)
+    rake (13.0.1)
     ruby-bitfield (0.1.0)
 
 PLATFORMS
@@ -18,7 +18,7 @@ DEPENDENCIES
   bundler (~> 1.17)
   has_unpublished_password!
   minitest (~> 5.0)
-  rake (~> 10.0)
+  rake (~> 13.0)
 
 BUNDLED WITH
    1.17.3
